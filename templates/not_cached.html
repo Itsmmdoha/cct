@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block static_files %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h2>Cloudflare generated a response that denotes the asset is not eligible for caching. This may have happened because:</h2>
+
+    <ol>
+        <li>
+            <p>A Worker generated a response without sending any subrequests. In this case, the response did not come from cache, so the cache status will be none/unknown.</p>
+        </li>
+        <li>
+            <p>A Worker request made a subrequest (fetch). In this case, the subrequest will be logged with a cache status, while the main request will be logged with none/unknown status (the main request did not hit cache, since Workers sit in front of the cache).</p>
+        </li>
+        <li>
+            <p>A WAF custom rule was triggered to block a request. The response will come from the Cloudflare global network before it hits cache. Since there is no cache status, Cloudflare will log it as none/unknown.</p>
+        </li>
+        <li>
+            <p>A redirect cache rule caused the global network to respond with a redirect to another asset/URL. This redirect response happens before the request reaches the cache, so the cache status is none/unknown.</p>
+        </li>
+    </ol>
+
+{% endblock %}

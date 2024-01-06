@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block static_files%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock%}
+
+
+{% block content%}
+<h2>{{ status }}</h2>
+<h4>Cache Headers:</h4>
+<code>
+    {{cf_headers}}
+</code>
+{% endblock%}

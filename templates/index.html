@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block static_files%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock%}
+
+
+{% block content%}
+    <h1>Cloudflare Cache Tester</h1>
+    <h4>Enter A Link From Your Website</h4>
+    <form action="test" method="post">
+        <input name="url" type="url" placeholder="Enter a URL">
+        <input type="submit" value="shorten" id="submit_button">
+    </form>
+
+{% endblock%}
