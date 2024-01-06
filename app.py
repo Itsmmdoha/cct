@@ -34,8 +34,8 @@ def test():
         return render_template("error.html",error="Invalid URL",title="Invalid URL")
 
     headers["Referer"] = url
-    response = get(url,headers=headers)
     try:
+        response = get(url,headers=headers)
         cache_header = response.headers["Cf-Cache-Status"]
         state = states[cache_header]
         cf_headers = {"Cf-Cache-Status":response.headers["Cf-Cache-Status"],
