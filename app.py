@@ -1,5 +1,5 @@
 from flask import Flask,request,render_template, send_from_directory
-from requests import get
+from requests import head
 
 app = Flask(__name__)
 
@@ -35,7 +35,7 @@ def test():
 
     headers["Referer"] = url
     try:
-        response = get(url,headers=headers)
+        response = head(url,headers=headers)
         cache_header = response.headers["Cf-Cache-Status"]
         state = states[cache_header]
         cf_headers = {"Cf-Cache-Status":response.headers["Cf-Cache-Status"],
@@ -44,6 +44,7 @@ def test():
                       }
         try:
             cf_headers["Cache-Control"] = response.headers["Cache-Control"]
+            cf_headers["Age"] = response.headers["Age"]
         except:
             pass
     except:
