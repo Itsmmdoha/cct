@@ -8,8 +8,6 @@ headers = {
   "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
   "Accept-Language": "en-US,en;q=0.8",
   "Connection": "close",
-  "cache-control": "no-cache",
-  "Referer": None,
 }
 states = {
     "HIT":"The resource was found in Cloudflare’s cache.",
