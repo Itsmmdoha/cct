@@ -97,7 +97,6 @@ official [documentation](https://developers.cloudflare.com/cache/concepts/defaul
 | UPDATING       | The resource was served from Cloudflare’s cache and was expired, but the origin web server is updating the resource. UPDATING is typically only seen for very popular cached resources.                                                                                                                                                                                                                                                                           |
 | DYNAMIC        | Cloudflare does not consider the asset eligible to cache, and your Cloudflare settings do not explicitly instruct Cloudflare to cache the asset. Instead, the asset was requested from the origin web server. Use Cache Rules to implement custom caching options.                                                                                                                                                                                                      |
 
-By checking the `cf-cache-status` header, you can easily determine whether the response was served from the cache or not. Happy caching!
 
 
 
